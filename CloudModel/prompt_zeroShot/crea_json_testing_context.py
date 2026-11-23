@@ -16,7 +16,7 @@ import parser_catalogo
 # ============================================================
 # CONFIGURATION: Modify these values to select the context range
 # ============================================================
-CONTEXT_START = 33   # Number of the first context to include (inclusive)
+CONTEXT_START = 1   # Number of the first context to include (inclusive)
 CONTEXT_END = 34     # Number of the last context to include (inclusive)
 # ============================================================
 
