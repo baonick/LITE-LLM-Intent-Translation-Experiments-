@@ -22,19 +22,19 @@ def crea_mappatura_vnf(lista_vnf):
 def _norm_property_expectation(args):
     """Removes Rule ID and Intent ID (first 2 parameters).
     
-    For 'affinity dedicated' properties, sorts the last two VNF parameters
-    (SourceVNF, DestVNF) alphabetically because they are interchangeable.
+    For 'affinity' properties ('same' or 'dedicated'), sorts the last two VNF
+    parameters (SourceVNF, DestVNF) alphabetically because they are interchangeable.
     """
     parts = args.split(',')
     if len(parts) <= 2:
         return args
     norm = parts[2:]
     # norm has 7 elements: Type, Operator, hard/soft, Value, Unit, SourceVNF, DestVNF
-    # If Type == 'affinity' and Value == 'dedicated', sort SourceVNF and DestVNF
+    # If Type == 'affinity' and Operator in ('same', 'dedicated'), sort SourceVNF and DestVNF
     if len(norm) == 7:
         tipo = norm[0].strip()
-        valore = norm[3].strip()
-        if tipo == 'affinity' and valore == 'dedicated':
+        operatore = norm[1].strip()
+        if tipo == 'affinity' and operatore in ('same', 'dedicated'):
             norm[-2], norm[-1] = sorted([norm[-2].strip(), norm[-1].strip()])
     return ",".join(norm)
 
