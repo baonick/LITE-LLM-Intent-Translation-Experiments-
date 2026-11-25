@@ -20,7 +20,7 @@ CARTELLA_DIPS = os.path.join(BASE_DIR, "dips")
 CARTELLA_OUTPUT_BASE = os.path.join(SCRIPT_DIR, "risultati_dips")
 
 # Timeout in seconds for each Prolog execution
-TIMEOUT_SECONDI = 15
+TIMEOUT_SECONDI = 60
 
 
 # ==============================================================================
